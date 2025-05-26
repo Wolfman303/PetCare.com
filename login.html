@@ -90,7 +90,7 @@
 
                 // Ganti history agar tidak bisa kembali ke login
                 window.history.replaceState(null, null, window.location.href);
-                window.location.href = 'petshop4.html';
+                window.location.href = 'index.html';
 
                 
                 // Simpan di localStorage jika rememberMe dicentang, atau sessionStorage jika tidak
@@ -101,7 +101,7 @@
                 }
                 
                 // Redirect ke halaman utama
-                window.location.href = 'petshop4.html';
+                window.location.href = 'index.html';
             } else {
                 alert('Email atau password salah!');
             }
@@ -114,10 +114,10 @@
             if (sessionData.isAuthenticated) {
                 // Periksa masa berlaku session jika rememberMe aktif
                 if (sessionData.expires && sessionData.expires > Date.now()) {
-                    window.location.href = 'petshop4.html';
+                    window.location.href = 'index.html';
                 } else if (!sessionData.expires) {
                     // SessionStorage masih aktif (selama tab tidak ditutup)
-                    window.location.href = 'petshop4.html';
+                    window.location.href = 'index.html';
                 } else {
                     // Session expired, hapus data
                     localStorage.removeItem('petcareSession');
