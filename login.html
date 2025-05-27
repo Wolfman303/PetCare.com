@@ -14,9 +14,9 @@
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100">
     <div class="min-h-screen flex items-center justify-center">
-        <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
+        <div class="bg-white p-8 rounded-xl shadow-md w-[90%] max-w-md">
             <div class="text-center mb-8">
                 <div class="flex items-center justify-center mb-4">
                     <i class="fas fa-paw text-3xl text-indigo-600 mr-2"></i>
@@ -74,11 +74,11 @@
             const rememberMe = document.getElementById('remember-me').checked;
             
             // Contoh validasi sederhana
-            if (email === 'admin@petcare.com' && password === 'admin123') {
+            if (email === 'admin@petcare.com' && password === 'petpet_777') {
                 // Buat objek session data
                 const sessionData = {
                     isAuthenticated: true,
-                    expires: rememberMe ? Date.now() + 3600000 : null // 1 jam = 3600000 ms
+                    expires: rememberMe ? Date.now() + 172800000 : null // 2 hari
                 };
 
                 // Di dalam blok login success
