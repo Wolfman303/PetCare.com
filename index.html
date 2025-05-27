@@ -14,12 +14,6 @@
         .sidebar {
             scrollbar-width: thin;
         }
-        .dashboard-card {
-            transition: all 0.3s ease;
-        }
-        .dashboard-card:hover {
-            transform: translateY(-3px);
-        }
     </style>
     <script>
         // Fungsi untuk memeriksa session
@@ -71,7 +65,6 @@
         // Cek session secara berkala (setiap 1 menit)
         setInterval(checkSession, 60000);
     </script>
-
 </body>
 </html>
 
@@ -80,10 +73,10 @@
     <div class="flex h-screen overflow-hidden">
         <!-- Mobile sidebar toggle -->
         <input type="checkbox" id="sidebar-toggle" class="peer hidden">
-        <label for="sidebar-toggle" class="fixed lg:hidden z-10 inset-0 bg-black/50 peer-checked:block hidden"></label>
+        <label for="sidebar-toggle" class="fixed lg:hidden z-10 inset-0 bg-black/50 hamburger sidebar-toggle hidden"></label>
 
         <!-- Sidebar -->
-        <div class="flex flex-col w-64 duration-500 bg-white border-r border-gray-200 lg:static fixed z-20 h-full -translate-x-full lg:translate-x-0 transition-transform peer-checked:translate-x-0">
+        <div id="sidebar" class="flex flex-col w-64 duration-500 bg-white sideside border-r border-gray-200 lg:static fixed z-20 h-full -translate-x-full lg:translate-x-0 transition-transform">
             <div class="flex items-center justify-center h-16 px-4 border-b border-gray-200">
                 <div class="flex items-center">
                     <i class="fas fa-paw text-2xl text-indigo-600 mr-2"></i>
@@ -93,23 +86,23 @@
             <div class="flex-1 overflow-y-auto sidebar">
                 <nav class="px-4 py-6">
                     <div class="space-y-1">
-                        <a href="#" data-section="dashboard" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg bg-indigo-50 text-indigo-700 group">
+                        <a href="#" data-section="dashboard" class="flex items-center hamburger px-3 py-2 text-sm font-medium rounded-lg bg-indigo-50 text-indigo-700 group">
                             <i class="fas fa-chart-line mr-3 text-indigo-600"></i>
                             Dashboard
                         </a>
-                        <a href="#" data-section="products" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 group">
+                        <a href="#" data-section="products" class="flex items-center hamburger px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 group">
                             <i class="fas fa-box-open mr-3 text-gray-500 group-hover:text-gray-700"></i>
                             Produk
                         </a>
-                        <a href="#" data-section="services" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 group">
+                        <a href="#" data-section="services" class="flex items-center hamburger px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 group">
                             <i class="fas fa-spa mr-3 text-gray-500 group-hover:text-gray-700"></i>
                             Layanan
                         </a>
-                        <a href="#" data-section="transactions" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 group">
+                        <a href="#" data-section="transactions" class="flex items-center hamburger px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 group">
                             <i class="fas fa-receipt mr-3 text-gray-500 group-hover:text-gray-700"></i>
                             Transaksi
                         </a>
-                        <a href="#" data-section="customers" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 group">
+                        <a href="#" data-section="customers" class="flex items-center hamburger px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 group">
                             <i class="fas fa-users mr-3 text-gray-500 group-hover:text-gray-700"></i>
                             Pelanggan
                         </a>
@@ -135,12 +128,11 @@
             <header class="bg-white shadow-sm">
                 <div class="flex items-center justify-between px-4 py-3">
                     <div class="flex items-center">
-                        <label for="sidebar-toggle" class="lg:hidden mr-2 text-gray-600">
+                        <label for="sidebar-toggle" class="lg:hidden hamburger mr-2 text-gray-600">
                             <i class="fas fa-bars text-xl"></i>
                         </label>
                         <h1 class="text-lg font-semibold text-gray-800">Dashboard</h1>
                     </div>
-
                     <div class="flex items-center space-x-4">
                         <button class="p-2 text-gray-600 hover:text-gray-900 rounded-full hover:bg-gray-100">
                             <i class="fas fa-bell"></i>
@@ -162,7 +154,7 @@
                 <!-- Dashboard Section -->
                 <section id="dashboard-section" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div class="dashboard-card bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <p class="text-sm font-medium text-gray-500">Total Produk</p>
@@ -173,7 +165,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dashboard-card bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <p class="text-sm font-medium text-gray-500">Total Layanan</p>
@@ -184,7 +176,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dashboard-card bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <p class="text-sm font-medium text-gray-500">Transaksi Hari Ini</p>
@@ -195,7 +187,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dashboard-card bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <p class="text-sm font-medium text-gray-500">Pendapatan</p>
@@ -638,6 +630,15 @@
             renderTransactions();
         });
 
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll(".hamburger").forEach(hamburger => {
+                hamburger.addEventListener("click", function() {
+                    document.querySelector(".sidebar-toggle").classList.toggle("hidden");
+                    document.querySelector(".sideside").classList.toggle("-translate-x-full");
+                });
+            });
+        });
+
         // Show selected section
         function showSection(sectionId) {
             // Hide all sections
@@ -655,6 +656,7 @@
                     link.classList.add('bg-indigo-50', 'text-indigo-700');
                 }
             });
+            // tutupnavabar di sini
         }
 
         // Update dashboard stats
